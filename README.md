@@ -3,8 +3,16 @@ A simple server-client tool for testing a TCP-Socket connection.
 
 ## [DE] Ein einfaches Server-Client-Tool zum Testen einer TCP-Socket-Verbindung.
 
-1. Geben Sie die gewünschte _IP_ und _PORT_ in `server.py` und `client.py` an.
-2. Nach dem Start des Servers sollte die Firewall Ihnen mitteilen, dass die Anwendung den Port öffnen will => `erlauben`.
+1. Geben Sie die gewünschte _IP_ und _PORT_ in `server.py`
+   ```server.py
+       server_socket.bind(('localhost', 7777)) # ('192.168.1.10', 7777)
+   ```
+    und `client.py` an:
+   ```client.py
+       SERVER_ADDRESS = 'localhost' # '192.168.1.10'
+       SERVER_PORT = 7777
+   ```
+3. Nach dem Start des Servers sollte die Firewall Ihnen mitteilen, dass die Anwendung den Port öffnen will => `erlauben`.
     - Falls dies nicht der Fall ist, müssen Sie die Erlaubnis für diesen Port manuell in den Firewall-Regeln hinzufügen:
       - 2.1. über GUI:
         > wf.msc => Eingeschränkte Regeln => Neue Regel => Port => 7777 => ...
@@ -19,7 +27,7 @@ A simple server-client tool for testing a TCP-Socket connection.
         <img width="734" alt="04" src="https://github.com/oshcherbyna/server-client-socket-test-tool/assets/10991880/a41cd578-a925-4c61-bff5-2aa898e30d51">
       - 2.5. Außerdem ist zu beachten, dass die Firewall bei der automatischen Erstellung einer neuen Regel eine Regel für die Anwendung erstellt. Wenn Sie also manuell eine Regel für einen Server-Port erstellen und keine Verbindung zum Server besteht, sollten Sie auch eine Regel für die Anwendung hinzufügen.
         In unserem Fall handelt es sich um `python`, der den Server-Code ausführt.
-3. Nachdem der Client gestartet wurde, stellt er eine Verbindung zum Server her. Wenn er erfolgreich ist, erhält der Client den Servernamen und beendet sich.
+4. Nachdem der Client gestartet wurde, stellt er eine Verbindung zum Server her. Wenn er erfolgreich ist, erhält der Client den Servernamen und beendet sich.
 
 📌 Beim lokalen Test wird geprüft, ob der Port geöffnet wird, wenn der Server mit dem Lauschen beginnt.
 <img width="408" alt="03" src="https://github.com/oshcherbyna/server-client-socket-test-tool/assets/10991880/371fab16-4769-494f-af8d-730a5c8e1db7">
