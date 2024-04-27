@@ -10,17 +10,25 @@ A simple server-client tool for testing a TCP-Socket connection.
         > wf.msc => Eingeschränkte Regeln => Neue Regel => Port => 7777 => ...
       - 2.2. oder über die Kommandozeile:
         > netsh advfirewall firewall add rule name='7777' dir=in action=allow protocol=TCP localport=7777
+        <img width="776" alt="05" src="https://github.com/oshcherbyna/server-client-socket-test-tool/assets/10991880/6dd1ff7e-7b60-4c68-8475-5e6eb36c08be">
       - 2.3. Nachdem eine neue Regel hinzugefügt wurde, wird der Status des angegebenen Ports im Status angezeigt:
         > netsh firewall show state
+        <img width="776" alt="06" src="https://github.com/oshcherbyna/server-client-socket-test-tool/assets/10991880/ffbf314a-d4ed-4c2f-99c1-3984303a8b02">
       - 2.4. Der Status des offenen Ports kann auch in netstat überprüft werden:
         > netstat -a | find „7777“
+        <img width="734" alt="04" src="https://github.com/oshcherbyna/server-client-socket-test-tool/assets/10991880/a41cd578-a925-4c61-bff5-2aa898e30d51">
       - 2.5. Außerdem ist zu beachten, dass die Firewall bei der automatischen Erstellung einer neuen Regel eine Regel für die Anwendung erstellt. Wenn Sie also manuell eine Regel für einen Server-Port erstellen und keine Verbindung zum Server besteht, sollten Sie auch eine Regel für die Anwendung hinzufügen.
         In unserem Fall handelt es sich um `python`, der den Server-Code ausführt.
 3. Nachdem der Client gestartet wurde, stellt er eine Verbindung zum Server her. Wenn er erfolgreich ist, erhält der Client den Servernamen und beendet sich.
 
 📌 Beim lokalen Test wird geprüft, ob der Port geöffnet wird, wenn der Server mit dem Lauschen beginnt.
+<img width="408" alt="03" src="https://github.com/oshcherbyna/server-client-socket-test-tool/assets/10991880/371fab16-4769-494f-af8d-730a5c8e1db7">
+<img width="408" alt="02" src="https://github.com/oshcherbyna/server-client-socket-test-tool/assets/10991880/0eb14068-8588-4469-ab60-fbf280ca3c3f">
 
 📌 Beim Ferntest wird geprüft, ob die Netzwerkverbindung funktioniert, ob Pakete durch Router gehen oder ob die Firewall des Servers eingehende Verbindungen zum angegebenen Port zulässt.
+
+<img width="321" alt="00" src="https://github.com/oshcherbyna/server-client-socket-test-tool/assets/10991880/b73de3ae-4784-410e-8755-345d440d3e4f">
+<img width="523" alt="01" src="https://github.com/oshcherbyna/server-client-socket-test-tool/assets/10991880/d6243006-0c41-411e-a96d-e6f67b97aa41">
 
 ## [UA] Простий сервер-клієнт інструмент для тестування сокетного TCP зʼєднання.
 
@@ -38,6 +46,7 @@ A simple server-client tool for testing a TCP-Socket connection.
 📌 При локальному тесті ми перевіряємо, що порт відкривається коли сервер починає його слухати.
 
 📌 При віддаленому тесті ми перевіряємо, чи відбувається мережеве зʼєднання, чи йдуть пакети через маршрутизатори, чи серверний фаєрвол дозволяє вхідні підключення на вказаний порт.
+
 
 ## [EN] A simple server-client tool for testing a TCP-Socket connection.
 
